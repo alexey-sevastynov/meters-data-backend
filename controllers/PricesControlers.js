@@ -44,9 +44,11 @@ const updatePriceService = async (req, res) => {
       .then((doc) => res.json(doc))
       .catch((err) =>
         res
-          .status(500)
-          .json({ message: "failed to patch update Price Service" })
+          .status(501)
+          .json({ message: `failed to patch update Price Service ` })
       );
+
+    res.json({ success: true });
   } catch (error) {
     console.log(error);
     res.status(500).json({ massage: "failed to patch update Price Service" });

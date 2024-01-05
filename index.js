@@ -28,9 +28,9 @@ app.get("/", (req, res) => {
   res.send(htmlContent);
 });
 
-app.get(`/home`, getAllServices);
-app.post(`/home`, createItemPriceService);
-app.patch("/home/:id", updatePriceService);
+app.get(`/prices`, getAllServices);
+app.post(`/prices`, createItemPriceService);
+app.patch("/prices/:id", updatePriceService);
 
 app.listen(PORT, (err) => {
   if (err) {

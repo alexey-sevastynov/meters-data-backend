@@ -1,6 +1,13 @@
 const express = require("express");
-const { htmlContent } = require("./htmlContent");
 const mongoose = require("mongoose");
+
+const { htmlContent } = require("./htmlContent");
+const {
+  getAllServices,
+  createItemPriceService,
+  updatePriceService,
+} = require("./controllers/PricesControlers");
+
 require("dotenv").config();
 
 const app = express();
@@ -18,6 +25,10 @@ mongoose
 app.get("/", (req, res) => {
   res.send(htmlContent);
 });
+
+app.get(`/home`, getAllServices);
+app.post(`/home`, createItemPriceService);
+app.patch("/home/:id", updatePriceService);
 
 app.listen(PORT, (err) => {
   if (err) {

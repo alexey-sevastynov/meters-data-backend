@@ -9,6 +9,14 @@ const {
   updatePriceService,
 } = require("./controllers/PricesControlers");
 
+const {
+  getAllMetersData,
+  createMeterData,
+  getOneMeterData,
+  updateMeterData,
+  removeMeterData,
+} = require("./controllers/MetersDataControlers");
+
 require("dotenv").config();
 
 const app = express();
@@ -39,6 +47,12 @@ app.get("/", (req, res) => {
 app.get(`/prices`, getAllServices);
 app.post(`/prices`, createItemPriceService);
 app.patch("/prices/:id", updatePriceService);
+
+app.get("/metersdatas", getAllMetersData);
+app.get("/metersdatas/:id", getOneMeterData);
+app.post("/metersdatas", createMeterData);
+app.patch("/metersdatas/:id", updateMeterData);
+app.delete("/metersdatas/:id", removeMeterData);
 
 app.listen(PORT, (err) => {
   if (err) {

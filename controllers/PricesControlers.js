@@ -46,6 +46,7 @@ const updatePriceService = async (req, res) => {
     const updatedItem = await itemToUpdate.save();
 
     res.json(updatedItem);
+    res.json({ success: true });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Failed to patch update Price Service" });

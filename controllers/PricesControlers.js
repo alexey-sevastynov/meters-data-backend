@@ -35,15 +35,15 @@ const updatePriceService = async (req, res) => {
   try {
     const itemId = req.params.id;
 
-    const updatedItem = await Prices.findOneAndUpdate(
-      { _id: itemId },
-      { value: req.body.value },
-      { new: true }
-    );
+    const itemToUpdate = await Prices.findOne({ _id: itemId });
 
-    if (!updatedItem) {
+    if (!itemToUpdate) {
       return res.status(404).json({ message: "Item not found" });
     }
+
+    itemToUpdate.value = req.body.value;
+
+    const updatedItem = await itemToUpdate.save();
 
     res.json(updatedItem);
   } catch (error) {

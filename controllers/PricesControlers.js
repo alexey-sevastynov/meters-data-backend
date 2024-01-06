@@ -33,23 +33,22 @@ const createItemPriceService = async (req, res) => {
 
 const updatePriceService = async (req, res) => {
   try {
-    const itemId = req.params.id;
-
-    const itemToUpdate = await Prices.findOne({ _id: itemId });
-
-    if (!itemToUpdate) {
-      return res.status(404).json({ message: "Item not found" });
-    }
-
-    itemToUpdate.value = req.body.value;
-
-    const updatedItem = await itemToUpdate.save();
-
-    res.json(updatedItem);
-    res.json({ success: true });
+    const ItemId = req.params.id;
+    Prices.updateOne(
+      { _id: ItemId },
+      {
+        value: req.body.value,
+      }
+    )
+      .then((doc) => res.json({ success: true }))
+      .catch((err) =>
+        res
+          .status(501)
+          .json({ message: `failed to patch update Price Service ` })
+      );
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Failed to patch update Price Service" });
+    res.status(500).json({ massage: "failed to patch update Price Service" });
   }
 };
 

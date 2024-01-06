@@ -48,7 +48,7 @@ const updatePriceService = async (req, res) => {
           .json({ message: `failed to patch update Price Service ` })
       );
 
-    res.json({ success: true });
+    // res.json({ success: true });
   } catch (error) {
     console.log(error);
     res.status(500).json({ massage: "failed to patch update Price Service" });

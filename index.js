@@ -18,7 +18,15 @@ app.use(cors());
 const PORT = 3000;
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    writeConcern: {
+      w: "majority",
+      j: true,
+      wtimeout: 1000,
+    },
+  })
   .then((client) => {
     console.log("DB OK!");
   })

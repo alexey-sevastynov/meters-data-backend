@@ -26,6 +26,8 @@ const MonthlyMoneyCalculationsSchema = new Schema({
       },
     },
   ],
+
+  sumMoney: { type: Number, required: true },
 });
 
 const MonthlyMoneyCalculations = mongoose.model(

@@ -36,6 +36,7 @@ const createMonthMoneyCalculations = async (req, res) => {
     const doc = new MonthlyMoneyCalculations({
       address: req.body.address,
       data: req.body.data,
+      sumMoney: req.body.sumMoney,
     });
 
     const monthMoneyCalculations = await doc.save();
@@ -57,6 +58,7 @@ const updateMonthMoneyCalculations = async (req, res) => {
       {
         address: req.body.address,
         data: req.body.data,
+        sumMoney: req.body.sumMoney,
       }
     )
       .then((doc) => res.json(doc))

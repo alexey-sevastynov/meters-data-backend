@@ -17,6 +17,14 @@ const {
   removeMeterData,
 } = require("./controllers/MetersDataControlers");
 
+const {
+  getAllMonthlyMoneyCalculations,
+  getOneMonthMoneyCalculations,
+  createMonthMoneyCalculations,
+  updateMonthMoneyCalculations,
+  removeMonthMoneyCalculations,
+} = require("./controllers/MonthlyMoneyCalculationsControlers");
+
 require("dotenv").config();
 
 const app = express();
@@ -53,6 +61,12 @@ app.get("/metersdatas/:id", getOneMeterData);
 app.post("/metersdatas", createMeterData);
 app.patch("/metersdatas/:id", updateMeterData);
 app.delete("/metersdatas/:id", removeMeterData);
+
+app.get("/monthlymoneycalculations", getAllMonthlyMoneyCalculations);
+app.get("/monthlymoneycalculations/:id", getOneMonthMoneyCalculations);
+app.post("/monthlymoneycalculations", createMonthMoneyCalculations);
+app.patch("/monthlymoneycalculations/:id", updateMonthMoneyCalculations);
+app.delete("/monthlymoneycalculations/:id", removeMonthMoneyCalculations);
 
 app.listen(PORT, (err) => {
   if (err) {

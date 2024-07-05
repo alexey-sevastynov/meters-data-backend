@@ -43,7 +43,7 @@ const createMeterData = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({
-      massage: `failed to create meter data`,
+      massage: `failed to create meter data ${req.body.address}, ${error}`,
     });
   }
 };

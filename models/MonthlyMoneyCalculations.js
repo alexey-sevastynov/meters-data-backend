@@ -8,6 +8,7 @@ const MonthlyMoneyCalculationsSchema = new Schema({
     enum: [
       "antonovicha-73",
       "antonovicha-75",
+      "antonovicha-75-3",
       "slobozhansky-68a",
       "chelyuskina",
     ],

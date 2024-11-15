@@ -24,7 +24,9 @@ const {
   updateMonthMoneyCalculations,
   removeMonthMoneyCalculations,
 } = require("./controllers/MonthlyMoneyCalculationsControlers");
-const { listAddress } = require("./constants/address");
+const {
+  getAllUtilityAccount,
+} = require("./controllers/UtilityAccountControlers");
 
 require("dotenv").config();
 
@@ -52,6 +54,8 @@ mongoose
 app.get("/", (req, res) => {
   res.send(htmlContent);
 });
+
+app.get("/utilityaccounts", getAllUtilityAccount);
 
 app.get(`/prices`, getAllServices);
 app.post(`/prices`, createItemPriceService);

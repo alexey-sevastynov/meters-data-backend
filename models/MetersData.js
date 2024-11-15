@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { listAddress } = require("../constants/address");
 
 const Schema = mongoose.Schema;
 
@@ -10,13 +11,7 @@ const MetersDataSchema = new Schema(
     }, // "02.2023" MM.YYYY
     address: {
       type: String,
-      enum: [
-        "antonovicha-73",
-        "antonovicha-75",
-        "antonovicha-75-3",
-        "slobozhansky-68a",
-        "chelyuskina",
-      ],
+      enum: listAddress,
       required: true,
     },
     light: Number,

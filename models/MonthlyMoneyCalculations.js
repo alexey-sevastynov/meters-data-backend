@@ -1,17 +1,12 @@
 const mongoose = require("mongoose");
+const { listAddress } = require("../constants/address");
 
 const Schema = mongoose.Schema;
 
 const MonthlyMoneyCalculationsSchema = new Schema({
   address: {
     type: String,
-    enum: [
-      "antonovicha-73",
-      "antonovicha-75",
-      "antonovicha-75-3",
-      "slobozhansky-68a",
-      "chelyuskina",
-    ],
+    enum: listAddress,
     required: true,
   },
 

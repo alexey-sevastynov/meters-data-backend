@@ -31,9 +31,6 @@ const PORT = process.env.PORT || 3000;
 
 mongoose
     .connect(process.env.MONGODB_URI || "", {
-        // @ts-ignore
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
         writeConcern: {
             w: "majority",
             j: true,

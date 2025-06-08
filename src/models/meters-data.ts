@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
-import { listAddress } from "../constants/address";
-import { WithTimestamps } from "../types/with-timestamps";
+import { listAddress } from "@/constants/address";
+import { WithTimestamps } from "@/types/with-timestamps";
 
 export interface IMetersData extends Document, WithTimestamps {
     date: string;

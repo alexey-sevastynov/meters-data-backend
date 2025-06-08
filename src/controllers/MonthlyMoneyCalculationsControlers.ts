@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IMonthlyMoneyCalculations, MonthlyMoneyCalculations } from "../models/monthly-money-calculations";
+import { IMonthlyMoneyCalculations, MonthlyMoneyCalculations } from "@/models/MonthlyMoneyCalculations";
 
 const getAllMonthlyMoneyCalculations = async (req: Request, res: Response): Promise<void> => {
     try {

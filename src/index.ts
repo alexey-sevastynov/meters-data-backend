@@ -1,23 +1,23 @@
 import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import { htmlContent } from "./htmlContent";
-import { getAllServices, createItemPriceService, updatePriceService } from "./controllers/PricesControlers";
+import { htmlContent } from "@/templates/html-content";
+import { getAllServices, createItemPriceService, updatePriceService } from "@/controllers/PricesControlers";
 import {
     getAllMetersData,
     createMeterData,
     getOneMeterData,
     updateMeterData,
     removeMeterData,
-} from "./controllers/MetersDataControlers";
+} from "@/controllers/MetersDataControlers";
 import {
     getAllMonthlyMoneyCalculations,
     getOneMonthMoneyCalculations,
     createMonthMoneyCalculations,
     updateMonthMoneyCalculations,
     removeMonthMoneyCalculations,
-} from "./controllers/MonthlyMoneyCalculationsControlers";
-import { getAllUtilityAccount } from "./controllers/UtilityAccountControlers";
+} from "@/controllers/MonthlyMoneyCalculationsControlers";
+import { getAllUtilityAccount } from "@/controllers/UtilityAccountControlers";
 
 import dotenv from "dotenv";
 dotenv.config();

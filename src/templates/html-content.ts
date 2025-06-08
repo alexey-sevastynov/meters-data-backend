@@ -1,4 +1,4 @@
-const htmlContent = `<!DOCTYPE html>
+export const htmlContent = `<!DOCTYPE html>
 <html>
 <head>
     <title>Api Meter Data</title>
@@ -8,5 +8,3 @@ const htmlContent = `<!DOCTYPE html>
   <p>Api Meter Data</p>
 </body>
 </html>`;
-
-export { htmlContent };

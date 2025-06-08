@@ -4,7 +4,7 @@
     "main": "dist/index.js",
     "scripts": {
         "build": "rimraf dist && tsc && tsc-alias",
-        "vercel-build": "npm run build",
+        "vercel-build": "rimraf dist && tsc && tsc-alias",
         "start": "node dist/index.js",
         "dev": "ts-node-dev --respawn --transpile-only --require tsconfig-paths/register src/index.ts"
     },

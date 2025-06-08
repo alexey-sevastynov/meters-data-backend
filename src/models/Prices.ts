@@ -1,6 +1,8 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import { Schema, Document } from "mongoose";
 import { MeasurementUnit, measurementUnits } from "../constants/measurement-units";
 import { WithTimestamps } from "../types/with-timestamps";
+import { resourceNames } from "../constants/resourceNames";
+import { getOrRegisterModel } from "../lib/mongoose/get-or-register-model";
 
 export interface IPrices extends Document, WithTimestamps {
     category: string;
@@ -25,5 +27,4 @@ const PricesSchema: Schema<IPrices> = new Schema(
     }
 );
 
-export const Prices: Model<IPrices> =
-    mongoose.models.Prices || mongoose.model<IPrices>("Prices", PricesSchema);
+export const Prices = getOrRegisterModel<IPrices>(resourceNames.prices, PricesSchema);

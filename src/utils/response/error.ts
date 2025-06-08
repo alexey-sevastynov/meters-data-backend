@@ -7,3 +7,11 @@ export function sendNotFoundError(res: Response, resourceName: string, id: strin
 
     sendErrorResponse(res, 404, message);
 }
+
+export function sendServerErrorResponse(res: Response, error: unknown) {
+    if (error instanceof Error) {
+        sendErrorResponse(res, 500, error.message);
+    } else {
+        sendErrorResponse(res, 500, errorMessage.internalServerError);
+    }
+}

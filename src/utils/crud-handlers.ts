@@ -1,8 +1,7 @@
 import { Model } from "mongoose";
 import { Response, Request } from "express";
-import { sendErrorResponse, sendItemResponse, sendListResponse } from "./response/helpers";
-import { errorMessage } from "../constants/error-message";
-import { sendNotFoundError } from "./response/error";
+import { sendItemResponse, sendListResponse } from "./response/helpers";
+import { sendNotFoundError, sendServerErrorResponse } from "./response/error";
 import { sendDeleteSuccessResponse, sendUpdateSuccessResponse } from "./response/success";
 
 export async function getAllResources<T>(model: Model<T>, req: Request, res: Response) {
@@ -11,7 +10,7 @@ export async function getAllResources<T>(model: Model<T>, req: Request, res: Res
 
         sendListResponse(res, allResources);
     } catch (error) {
-        sendErrorResponse(res, 500, errorMessage.internalServerError);
+        sendServerErrorResponse(res, error);
     }
 }
 
@@ -23,7 +22,7 @@ export async function getOneResource<T>(model: Model<T>, req: Request, res: Resp
 
         sendItemResponse(res, item);
     } catch (error) {
-        sendErrorResponse(res, 500, errorMessage.internalServerError);
+        sendServerErrorResponse(res, error);
     }
 }
 
@@ -34,7 +33,7 @@ export async function createResource<T>(model: Model<T>, req: Request, res: Resp
 
         sendItemResponse(res, createdItem);
     } catch (error) {
-        sendErrorResponse(res, 500, errorMessage.internalServerError);
+        sendServerErrorResponse(res, error);
     }
 }
 
@@ -50,7 +49,7 @@ export async function updateResource<T>(model: Model<T>, req: Request, res: Resp
 
         sendUpdateSuccessResponse(res, item, model.modelName, req.params.id);
     } catch (error) {
-        sendErrorResponse(res, 500, errorMessage.internalServerError);
+        sendServerErrorResponse(res, error);
     }
 }
 
@@ -62,7 +61,7 @@ export async function deleteResource<T>(model: Model<T>, req: Request, res: Resp
 
         sendDeleteSuccessResponse(res, item, model.modelName, req.params.id);
     } catch (error) {
-        sendErrorResponse(res, 500, errorMessage.internalServerError);
+        sendServerErrorResponse(res, error);
     }
 }
 

@@ -1,7 +1,9 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import { Schema, Document } from "mongoose";
 import { listAddress } from "../constants/address";
 import { WithTimestamps } from "../types/with-timestamps";
 import { CalculationData } from "../types/calculation-data";
+import { getOrRegisterModel } from "../lib/mongoose/get-or-register-model";
+import { resourceNames } from "../constants/resourceNames";
 
 export interface IMonthlyMoneyCalculations extends Document, WithTimestamps {
     address: string;
@@ -25,6 +27,7 @@ const MonthlyMoneyCalculationsSchema: Schema<IMonthlyMoneyCalculations> = new Sc
     }
 );
 
-export const MonthlyMoneyCalculations: Model<IMonthlyMoneyCalculations> =
-    mongoose.models.MonthlyMoneyCalculations ||
-    mongoose.model<IMonthlyMoneyCalculations>("MonthlyMoneyCalculations", MonthlyMoneyCalculationsSchema);
+export const MonthlyMoneyCalculations = getOrRegisterModel<IMonthlyMoneyCalculations>(
+    resourceNames.monthlyMoneyCalculations,
+    MonthlyMoneyCalculationsSchema
+);

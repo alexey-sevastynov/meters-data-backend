@@ -1,6 +1,8 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import { Schema, Document } from "mongoose";
 import { listAddress } from "../constants/address";
 import { WithTimestamps } from "../types/with-timestamps";
+import { resourceNames } from "../constants/resourceNames";
+import { getOrRegisterModel } from "../lib/mongoose/get-or-register-model";
 
 export interface IUtilityAccount extends Document, WithTimestamps {
     address: string;
@@ -19,5 +21,7 @@ const UtilityAccountSchema: Schema<IUtilityAccount> = new Schema(
     { timestamps: true }
 );
 
-export const UtilityAccount: Model<IUtilityAccount> =
-    mongoose.models.UtilityAccount || mongoose.model<IUtilityAccount>("UtilityAccount", UtilityAccountSchema);
+export const UtilityAccount = getOrRegisterModel<IUtilityAccount>(
+    resourceNames.utilityAccount,
+    UtilityAccountSchema
+);

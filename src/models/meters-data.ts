@@ -1,6 +1,8 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import { Schema, Document } from "mongoose";
 import { listAddress } from "../constants/address";
 import { WithTimestamps } from "../types/with-timestamps";
+import { getOrRegisterModel } from "../lib/mongoose/get-or-register-model";
+import { resourceNames } from "../constants/resourceNames";
 
 export interface IMetersData extends Document, WithTimestamps {
     date: string;
@@ -27,5 +29,4 @@ const MetersDataSchema: Schema<IMetersData> = new Schema(
     }
 );
 
-export const MetersData: Model<IMetersData> =
-    mongoose.models.MetersData || mongoose.model<IMetersData>("MetersData", MetersDataSchema);
+export const MetersData = getOrRegisterModel<IMetersData>(resourceNames.metersData, MetersDataSchema);

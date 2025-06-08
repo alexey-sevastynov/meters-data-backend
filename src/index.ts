@@ -68,5 +68,6 @@ app.listen(PORT, (err?: Error) => {
     if (err) {
         return console.log(`Error! ${err.message}`);
     }
+
     console.log(`Server OK! http://localhost:${PORT}/`);
 });

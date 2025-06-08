@@ -1,9 +1,11 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
+import { MeasurementUnit, measurementUnits } from "../constants/measurement-units";
+import { WithTimestamps } from "../types/with-timestamps";
 
-export interface IPrices extends Document {
+export interface IPrices extends Document, WithTimestamps {
     category: string;
     image: string[];
-    valueName: "kW" | "m³" | "piece";
+    valueName: MeasurementUnit;
     value: number;
 }
 
@@ -11,14 +13,17 @@ const PricesSchema: Schema<IPrices> = new Schema(
     {
         category: { type: String, required: true },
         image: { type: [String], required: true },
-        valueName: { type: String, enum: ["kW", "m³", "piece"], required: true },
+        valueName: {
+            type: String,
+            enum: [measurementUnits.kilowatt, measurementUnits.cubicMeter, measurementUnits.piece],
+            required: true,
+        },
         value: { type: Number, required: true },
     },
     {
-        timestamps: true, // если нужно, добавь метки времени
+        timestamps: true,
     }
 );
 
-const Prices: Model<IPrices> = mongoose.model<IPrices>("Prices", PricesSchema);
-
-export default Prices;
+export const Prices: Model<IPrices> =
+    mongoose.models.Prices || mongoose.model<IPrices>("Prices", PricesSchema);

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import UtilityAccount, { IUtilityAccount } from "../models/UtilityAccount";
+import { UtilityAccount, IUtilityAccount } from "../models/utility-account";
 
 const getAllUtilityAccount = async (req: Request, res: Response): Promise<void> => {
     try {

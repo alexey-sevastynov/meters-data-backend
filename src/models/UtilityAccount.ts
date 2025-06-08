@@ -1,8 +1,9 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 import { listAddress } from "../constants/address";
+import { WithTimestamps } from "../types/with-timestamps";
 
-export interface IUtilityAccount extends Document {
-    address: { type: StringConstructor; enum: (string | undefined)[]; required: true };
+export interface IUtilityAccount extends Document, WithTimestamps {
+    address: string;
     light: string;
     gas: string;
     water: string;
@@ -10,23 +11,13 @@ export interface IUtilityAccount extends Document {
 
 const UtilityAccountSchema: Schema<IUtilityAccount> = new Schema(
     {
-        address: {
-            type: String,
-            enum: listAddress,
-            required: true,
-        },
+        address: { type: String, enum: listAddress, required: true },
         light: { type: String, required: true },
         gas: { type: String, required: true },
         water: { type: String, required: true },
     },
-    {
-        timestamps: true,
-    }
+    { timestamps: true }
 );
 
-const UtilityAccount: Model<IUtilityAccount> = mongoose.model<IUtilityAccount>(
-    "UtilityAccount",
-    UtilityAccountSchema
-);
-
-export default UtilityAccount;
+export const UtilityAccount: Model<IUtilityAccount> =
+    mongoose.models.UtilityAccount || mongoose.model<IUtilityAccount>("UtilityAccount", UtilityAccountSchema);

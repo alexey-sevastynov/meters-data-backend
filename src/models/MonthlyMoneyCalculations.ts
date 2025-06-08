@@ -1,31 +1,22 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 import { listAddress } from "../constants/address";
+import { WithTimestamps } from "../types/with-timestamps";
+import { CalculationData } from "../types/calculation-data";
 
-interface IDataItem {
-    title: string;
-    description: string;
-}
-
-export interface IMonthlyMoneyCalculations extends Document {
-    address: { type: StringConstructor; enum: (string | undefined)[]; required: true };
-    data: IDataItem[];
+export interface IMonthlyMoneyCalculations extends Document, WithTimestamps {
+    address: string;
+    data: CalculationData[];
     sumMoney: number;
-    createdAt?: Date;
-    updatedAt?: Date;
 }
 
-const DataItemSchema: Schema<IDataItem> = new Schema({
+const DataItemSchema: Schema<CalculationData> = new Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
 });
 
 const MonthlyMoneyCalculationsSchema: Schema<IMonthlyMoneyCalculations> = new Schema(
     {
-        address: {
-            type: String,
-            enum: listAddress,
-            required: true,
-        },
+        address: { type: String, enum: listAddress, required: true },
         data: [DataItemSchema],
         sumMoney: { type: Number, required: true },
     },
@@ -34,9 +25,6 @@ const MonthlyMoneyCalculationsSchema: Schema<IMonthlyMoneyCalculations> = new Sc
     }
 );
 
-const MonthlyMoneyCalculations: Model<IMonthlyMoneyCalculations> = mongoose.model<IMonthlyMoneyCalculations>(
-    "MonthlyMoneyCalculations",
-    MonthlyMoneyCalculationsSchema
-);
-
-export default MonthlyMoneyCalculations;
+export const MonthlyMoneyCalculations: Model<IMonthlyMoneyCalculations> =
+    mongoose.models.MonthlyMoneyCalculations ||
+    mongoose.model<IMonthlyMoneyCalculations>("MonthlyMoneyCalculations", MonthlyMoneyCalculationsSchema);

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import Prices, { IPrices } from "../models/Prices";
+import { IPrices, Prices } from "../models/Prices";
 
 const getAllServices = async (req: Request, res: Response): Promise<void> => {
     try {

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import MetersData, { IMetersData } from "../models/MetersData";
+import { IMetersData, MetersData } from "../models/MetersData";
 
 const getAllMetersData = async (req: Request, res: Response): Promise<void> => {
     try {

@@ -1,13 +1,10 @@
-import dotenv from "dotenv";
+import { getEnvVariable } from "../infra/env/env-functions";
+import { envKeys } from "../infra/env/env-keys";
 
-dotenv.config();
-
-const listAddress = [
-    process.env.ADDR_003,
-    process.env.ADDR_004,
-    process.env.ADDR_005,
-    process.env.ADDR_002,
-    process.env.ADDR_001,
-];
-
-export { listAddress };
+export const listAddress = [
+    getEnvVariable(envKeys.address001),
+    getEnvVariable(envKeys.address002),
+    getEnvVariable(envKeys.address003),
+    getEnvVariable(envKeys.address004),
+    getEnvVariable(envKeys.address005),
+] as const;

@@ -1,5 +1,5 @@
-import { getEnvVariable } from "../infra/env/env-functions";
-import { envKeys } from "../infra/env/env-keys";
+import { getEnvVariable } from "@/infra/env/env-functions";
+import { envKeys } from "@/infra/env/env-keys";
 
 export const listAddress = [
     getEnvVariable(envKeys.address001),

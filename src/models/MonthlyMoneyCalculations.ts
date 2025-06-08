@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
-import { listAddress } from "../constants/address";
-import { WithTimestamps } from "../types/with-timestamps";
-import { CalculationData } from "../types/calculation-data";
+import { listAddress } from "@/constants/address";
+import { WithTimestamps } from "@/types/with-timestamps";
+import { CalculationData } from "@/types/calculation-data";
 
 export interface IMonthlyMoneyCalculations extends Document, WithTimestamps {
     address: string;

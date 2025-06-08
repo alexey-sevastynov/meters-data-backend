@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
-import { MeasurementUnit, measurementUnits } from "../constants/measurement-units";
-import { WithTimestamps } from "../types/with-timestamps";
+import { MeasurementUnit, measurementUnits } from "@/constants/measurement-units";
+import { WithTimestamps } from "@/types/with-timestamps";
 
 export interface IPrices extends Document, WithTimestamps {
     category: string;

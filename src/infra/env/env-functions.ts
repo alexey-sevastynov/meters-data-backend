@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { EnvKey } from "./env-keys";
+import { EnvKey } from "@/infra/env/env-keys";
 
 dotenv.config();
 

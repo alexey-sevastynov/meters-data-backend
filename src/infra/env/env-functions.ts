@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import { EnvKey } from "./env-keys";
+import { errorMessage } from "../../constants/error-message";
 
 dotenv.config();
 

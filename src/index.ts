@@ -2,22 +2,22 @@ import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import { htmlContent } from "./htmlContent";
-import { getAllServices, createItemPriceService, updatePriceService } from "./controllers/PricesControlers";
+import { getAllServices, createItemPriceService, updatePriceService } from "./controllers/prices-controllers";
 import {
     getAllMetersData,
     createMeterData,
     getOneMeterData,
     updateMeterData,
     removeMeterData,
-} from "./controllers/MetersDataControlers";
+} from "./controllers/meters-data-controllers";
 import {
     getAllMonthlyMoneyCalculations,
     getOneMonthMoneyCalculations,
     createMonthMoneyCalculations,
     updateMonthMoneyCalculations,
     removeMonthMoneyCalculations,
-} from "./controllers/MonthlyMoneyCalculationsControlers";
-import { getAllUtilityAccount } from "./controllers/UtilityAccountControlers";
+} from "./controllers/monthly-money-calculations-controllers";
+import { getAllUtilityAccount } from "./controllers/utility-account-controllers";
 
 import dotenv from "dotenv";
 dotenv.config();

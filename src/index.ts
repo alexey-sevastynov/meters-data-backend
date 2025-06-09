@@ -18,6 +18,7 @@ import {
     removeMonthMoneyCalculations,
 } from "./controllers/monthly-money-calculations-controllers";
 import { getAllUtilityAccount } from "./controllers/utility-account-controllers";
+import { checkApiKey } from "./middleware/check-api-key";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -48,21 +49,21 @@ app.get("/", (req: Request, res: Response) => {
 
 app.get("/utilityaccounts", getAllUtilityAccount);
 
-app.get("/prices", getAllServices);
-app.post("/prices", createItemPriceService);
-app.patch("/prices/:id", updatePriceService);
+app.get("/prices", checkApiKey, getAllServices);
+app.post("/prices", checkApiKey, createItemPriceService);
+app.patch("/prices/:id", checkApiKey, updatePriceService);
 
-app.get("/metersdatas", getAllMetersData);
-app.get("/metersdatas/:id", getOneMeterData);
-app.post("/metersdatas", createMeterData);
-app.patch("/metersdatas/:id", updateMeterData);
-app.delete("/metersdatas/:id", removeMeterData);
+app.get("/metersdatas", checkApiKey, getAllMetersData);
+app.get("/metersdatas/:id", checkApiKey, getOneMeterData);
+app.post("/metersdatas", checkApiKey, createMeterData);
+app.patch("/metersdatas/:id", checkApiKey, updateMeterData);
+app.delete("/metersdatas/:id", checkApiKey, removeMeterData);
 
-app.get("/monthlymoneycalculations", getAllMonthlyMoneyCalculations);
-app.get("/monthlymoneycalculations/:id", getOneMonthMoneyCalculations);
-app.post("/monthlymoneycalculations", createMonthMoneyCalculations);
-app.patch("/monthlymoneycalculations/:id", updateMonthMoneyCalculations);
-app.delete("/monthlymoneycalculations/:id", removeMonthMoneyCalculations);
+app.get("/monthlymoneycalculations", checkApiKey, getAllMonthlyMoneyCalculations);
+app.get("/monthlymoneycalculations/:id", checkApiKey, getOneMonthMoneyCalculations);
+app.post("/monthlymoneycalculations", checkApiKey, createMonthMoneyCalculations);
+app.patch("/monthlymoneycalculations/:id", checkApiKey, updateMonthMoneyCalculations);
+app.delete("/monthlymoneycalculations/:id", checkApiKey, removeMonthMoneyCalculations);
 
 app.listen(PORT, (err?: Error) => {
     if (err) {

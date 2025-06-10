@@ -4,14 +4,14 @@ import { WithTimestamps } from "../types/with-timestamps";
 import { resourceNames } from "../constants/resourceNames";
 import { getOrRegisterModel } from "../lib/mongoose/get-or-register-model";
 
-export interface IUtilityAccount extends Document, WithTimestamps {
+export interface IBillingAccount extends Document, WithTimestamps {
     address: string;
     light: string;
     gas: string;
     water: string;
 }
 
-const UtilityAccountSchema: Schema<IUtilityAccount> = new Schema(
+const BillingAccountSchema: Schema<IBillingAccount> = new Schema(
     {
         address: { type: String, enum: listAddress, required: true },
         light: { type: String, required: true },
@@ -21,7 +21,7 @@ const UtilityAccountSchema: Schema<IUtilityAccount> = new Schema(
     { timestamps: true }
 );
 
-export const UtilityAccount = getOrRegisterModel<IUtilityAccount>(
-    resourceNames.utilityAccount,
-    UtilityAccountSchema
+export const BillingAccounts = getOrRegisterModel<IBillingAccount>(
+    resourceNames.billingAccounts,
+    BillingAccountSchema
 );

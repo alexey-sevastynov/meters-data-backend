@@ -17,7 +17,7 @@ import {
     updateMonthMoneyCalculations,
     removeMonthMoneyCalculations,
 } from "./controllers/monthly-money-calculations-controllers";
-import { getAllUtilityAccount } from "./controllers/utility-account-controllers";
+import { getAllBillingAccounts } from "./controllers/billing-account-controllers";
 import { checkApiKey } from "./middleware/check-api-key";
 
 import dotenv from "dotenv";
@@ -47,7 +47,7 @@ app.get("/", (req: Request, res: Response) => {
     res.send(htmlContent);
 });
 
-app.get("/utilityaccounts", getAllUtilityAccount);
+app.get("/billingAccounts", checkApiKey, getAllBillingAccounts);
 
 app.get("/prices", checkApiKey, getAllServices);
 app.post("/prices", checkApiKey, createItemPriceService);

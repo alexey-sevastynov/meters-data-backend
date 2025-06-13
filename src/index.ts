@@ -8,12 +8,12 @@ import {
     updateUtilityPrice,
 } from "./controllers/utility-price-controllers";
 import {
-    getAllMetersData,
+    getAllMeterData,
     createMeterData,
     getOneMeterData,
     updateMeterData,
     removeMeterData,
-} from "./controllers/meters-data-controllers";
+} from "./controllers/meter-data-controllers";
 import {
     getAllMonthlyMoneyCalculations,
     getOneMonthMoneyCalculations,
@@ -57,11 +57,11 @@ app.get("/utility-prices", checkApiKey, getAllUtilityPrices);
 app.post("/utility-prices", checkApiKey, createUtilityPrice);
 app.patch("/utility-prices/:id", checkApiKey, updateUtilityPrice);
 
-app.get("/metersdatas", checkApiKey, getAllMetersData);
-app.get("/metersdatas/:id", checkApiKey, getOneMeterData);
-app.post("/metersdatas", checkApiKey, createMeterData);
-app.patch("/metersdatas/:id", checkApiKey, updateMeterData);
-app.delete("/metersdatas/:id", checkApiKey, removeMeterData);
+app.get("/meter-data", checkApiKey, getAllMeterData);
+app.get("/meter-data/:id", checkApiKey, getOneMeterData);
+app.post("/meter-data", checkApiKey, createMeterData);
+app.patch("/meter-data/:id", checkApiKey, updateMeterData);
+app.delete("/meter-data/:id", checkApiKey, removeMeterData);
 
 app.get("/monthly-money-calculations", checkApiKey, getAllMonthlyMoneyCalculations);
 app.get("/monthly-money-calculations/:id", checkApiKey, getOneMonthMoneyCalculations);

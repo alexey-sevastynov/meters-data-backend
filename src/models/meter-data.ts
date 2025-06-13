@@ -4,7 +4,7 @@ import { WithTimestamps } from "../types/with-timestamps";
 import { getOrRegisterModel } from "../lib/mongoose/get-or-register-model";
 import { resourceNames } from "../constants/resourceNames";
 
-export interface IMetersData extends Document, WithTimestamps {
+export interface IMeterData extends Document, WithTimestamps {
     date: string;
     address: string;
     light?: number;
@@ -14,7 +14,7 @@ export interface IMetersData extends Document, WithTimestamps {
     water: number;
 }
 
-const MetersDataSchema: Schema<IMetersData> = new Schema(
+const MeterDataSchema: Schema<IMeterData> = new Schema(
     {
         date: { type: String, required: true },
         address: { type: String, enum: listAddress, required: true },
@@ -29,4 +29,4 @@ const MetersDataSchema: Schema<IMetersData> = new Schema(
     }
 );
 
-export const MetersData = getOrRegisterModel<IMetersData>(resourceNames.metersData, MetersDataSchema);
+export const MeterData = getOrRegisterModel<IMeterData>(resourceNames.meterData, MeterDataSchema);

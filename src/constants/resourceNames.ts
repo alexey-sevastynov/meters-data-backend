@@ -1,7 +1,7 @@
 export const resourceNames = {
     prices: "Prices",
     metersData: "MetersData",
-    billingAccounts: "BillingAccounts",
+    billingAccount: "BillingAccount",
     monthlyMoneyCalculations: "MonthlyMoneyCalculations",
 } as const;
 

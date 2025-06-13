@@ -47,7 +47,7 @@ app.get("/", (req: Request, res: Response) => {
     res.send(htmlContent);
 });
 
-app.get("/billingAccounts", checkApiKey, getAllBillingAccounts);
+app.get("/billing-accounts", checkApiKey, getAllBillingAccounts);
 
 app.get("/prices", checkApiKey, getAllServices);
 app.post("/prices", checkApiKey, createItemPriceService);

@@ -21,7 +21,7 @@ const BillingAccountSchema: Schema<IBillingAccount> = new Schema(
     { timestamps: true }
 );
 
-export const BillingAccounts = getOrRegisterModel<IBillingAccount>(
-    resourceNames.billingAccounts,
+export const BillingAccount = getOrRegisterModel<IBillingAccount>(
+    resourceNames.billingAccount,
     BillingAccountSchema
 );

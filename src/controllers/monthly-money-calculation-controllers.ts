@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IMonthlyMoneyCalculations, MonthlyMoneyCalculations } from "../models/monthly-money-calculations";
+import { IMonthlyMoneyCalculation, MonthlyMoneyCalculation } from "../models/monthly-money-calculation";
 import {
     createResource,
     deleteResource,
@@ -9,21 +9,21 @@ import {
 } from "../utils/crud-handlers";
 
 export async function getAllMonthlyMoneyCalculations(req: Request, res: Response) {
-    await getAllResources<IMonthlyMoneyCalculations>(MonthlyMoneyCalculations, req, res);
+    await getAllResources<IMonthlyMoneyCalculation>(MonthlyMoneyCalculation, req, res);
 }
 
 export async function getOneMonthMoneyCalculations(req: Request, res: Response) {
-    await getOneResource<IMonthlyMoneyCalculations>(MonthlyMoneyCalculations, req, res);
+    await getOneResource<IMonthlyMoneyCalculation>(MonthlyMoneyCalculation, req, res);
 }
 
 export async function createMonthMoneyCalculations(req: Request, res: Response) {
-    await createResource<IMonthlyMoneyCalculations>(MonthlyMoneyCalculations, req, res);
+    await createResource<IMonthlyMoneyCalculation>(MonthlyMoneyCalculation, req, res);
 }
 
 export async function updateMonthMoneyCalculations(req: Request, res: Response) {
-    await updateResource<IMonthlyMoneyCalculations>(MonthlyMoneyCalculations, req, res);
+    await updateResource<IMonthlyMoneyCalculation>(MonthlyMoneyCalculation, req, res);
 }
 
 export async function removeMonthMoneyCalculations(req: Request, res: Response) {
-    await deleteResource<IMonthlyMoneyCalculations>(MonthlyMoneyCalculations, req, res);
+    await deleteResource<IMonthlyMoneyCalculation>(MonthlyMoneyCalculation, req, res);
 }

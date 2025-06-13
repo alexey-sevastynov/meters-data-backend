@@ -5,7 +5,7 @@ import { CalculationData } from "../types/calculation-data";
 import { getOrRegisterModel } from "../lib/mongoose/get-or-register-model";
 import { resourceNames } from "../constants/resourceNames";
 
-export interface IMonthlyMoneyCalculations extends Document, WithTimestamps {
+export interface IMonthlyMoneyCalculation extends Document, WithTimestamps {
     address: string;
     data: CalculationData[];
     sumMoney: number;
@@ -16,7 +16,7 @@ const DataItemSchema: Schema<CalculationData> = new Schema({
     description: { type: String, required: true },
 });
 
-const MonthlyMoneyCalculationsSchema: Schema<IMonthlyMoneyCalculations> = new Schema(
+const MonthlyMoneyCalculationSchema: Schema<IMonthlyMoneyCalculation> = new Schema(
     {
         address: { type: String, enum: listAddress, required: true },
         data: [DataItemSchema],
@@ -27,7 +27,7 @@ const MonthlyMoneyCalculationsSchema: Schema<IMonthlyMoneyCalculations> = new Sc
     }
 );
 
-export const MonthlyMoneyCalculations = getOrRegisterModel<IMonthlyMoneyCalculations>(
-    resourceNames.monthlyMoneyCalculations,
-    MonthlyMoneyCalculationsSchema
+export const MonthlyMoneyCalculation = getOrRegisterModel<IMonthlyMoneyCalculation>(
+    resourceNames.monthlyMoneyCalculation,
+    MonthlyMoneyCalculationSchema
 );

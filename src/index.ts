@@ -20,7 +20,7 @@ import {
     createMonthMoneyCalculations,
     updateMonthMoneyCalculations,
     removeMonthMoneyCalculations,
-} from "./controllers/monthly-money-calculations-controllers";
+} from "./controllers/monthly-money-calculation-controllers";
 import { getAllBillingAccounts } from "./controllers/billing-account-controllers";
 import { checkApiKey } from "./middleware/check-api-key";
 
@@ -63,11 +63,11 @@ app.post("/metersdatas", checkApiKey, createMeterData);
 app.patch("/metersdatas/:id", checkApiKey, updateMeterData);
 app.delete("/metersdatas/:id", checkApiKey, removeMeterData);
 
-app.get("/monthlymoneycalculations", checkApiKey, getAllMonthlyMoneyCalculations);
-app.get("/monthlymoneycalculations/:id", checkApiKey, getOneMonthMoneyCalculations);
-app.post("/monthlymoneycalculations", checkApiKey, createMonthMoneyCalculations);
-app.patch("/monthlymoneycalculations/:id", checkApiKey, updateMonthMoneyCalculations);
-app.delete("/monthlymoneycalculations/:id", checkApiKey, removeMonthMoneyCalculations);
+app.get("/monthly-money-calculations", checkApiKey, getAllMonthlyMoneyCalculations);
+app.get("/monthly-money-calculations/:id", checkApiKey, getOneMonthMoneyCalculations);
+app.post("/monthly-money-calculations", checkApiKey, createMonthMoneyCalculations);
+app.patch("/monthly-money-calculations/:id", checkApiKey, updateMonthMoneyCalculations);
+app.delete("/monthly-money-calculations/:id", checkApiKey, removeMonthMoneyCalculations);
 
 app.listen(PORT, (err?: Error) => {
     if (err) {

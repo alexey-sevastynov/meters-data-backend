@@ -1,5 +1,5 @@
 export const resourceNames = {
-    prices: "Prices",
+    utilityPrice: "UtilityPrice",
     metersData: "MetersData",
     billingAccount: "BillingAccount",
     monthlyMoneyCalculations: "MonthlyMoneyCalculations",

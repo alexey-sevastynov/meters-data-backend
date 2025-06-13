@@ -4,14 +4,14 @@ import { WithTimestamps } from "../types/with-timestamps";
 import { resourceNames } from "../constants/resourceNames";
 import { getOrRegisterModel } from "../lib/mongoose/get-or-register-model";
 
-export interface IPrices extends Document, WithTimestamps {
+export interface IUtilityPrice extends Document, WithTimestamps {
     category: string;
     image: string[];
     valueName: MeasurementUnit;
     value: number;
 }
 
-const PricesSchema: Schema<IPrices> = new Schema(
+const UtilityPriceSchema: Schema<IUtilityPrice> = new Schema(
     {
         category: { type: String, required: true },
         image: { type: [String], required: true },
@@ -27,4 +27,4 @@ const PricesSchema: Schema<IPrices> = new Schema(
     }
 );
 
-export const Prices = getOrRegisterModel<IPrices>(resourceNames.prices, PricesSchema);
+export const UtilityPrice = getOrRegisterModel<IUtilityPrice>(resourceNames.utilityPrice, UtilityPriceSchema);

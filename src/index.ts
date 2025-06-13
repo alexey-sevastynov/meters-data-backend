@@ -2,7 +2,11 @@ import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import { htmlContent } from "./htmlContent";
-import { getAllServices, createItemPriceService, updatePriceService } from "./controllers/prices-controllers";
+import {
+    getAllUtilityPrices,
+    createUtilityPrice,
+    updateUtilityPrice,
+} from "./controllers/utility-price-controllers";
 import {
     getAllMetersData,
     createMeterData,
@@ -49,9 +53,9 @@ app.get("/", (req: Request, res: Response) => {
 
 app.get("/billing-accounts", checkApiKey, getAllBillingAccounts);
 
-app.get("/prices", checkApiKey, getAllServices);
-app.post("/prices", checkApiKey, createItemPriceService);
-app.patch("/prices/:id", checkApiKey, updatePriceService);
+app.get("/utility-prices", checkApiKey, getAllUtilityPrices);
+app.post("/utility-prices", checkApiKey, createUtilityPrice);
+app.patch("/utility-prices/:id", checkApiKey, updateUtilityPrice);
 
 app.get("/metersdatas", checkApiKey, getAllMetersData);
 app.get("/metersdatas/:id", checkApiKey, getOneMeterData);

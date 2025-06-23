@@ -6,7 +6,6 @@ export const envKeys = {
     address005: "ADDR_005",
     mongoDbUri: "MONGODB_URI",
     apiKey: "API_KEY",
-    port: "PORT",
 } as const;
 
 export type EnvKey = (typeof envKeys)[keyof typeof envKeys];

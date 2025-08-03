@@ -11,9 +11,16 @@ async function startServer() {
 
     const io = new SocketIOServer(httpServer, {
         cors: {
-            origin: ["http://localhost:5173", "https://alexey-sevastynov.github.io/meters-data"],
+            origin: [
+                "http://localhost:5173",
+                "https://alexey-sevastynov.github.io",
+                "https://alexey-sevastynov.github.io/meters-data",
+                "https://meters-socket-server.up.railway.app",
+            ],
             methods: ["GET", "POST", "PUT", "DELETE"],
+            credentials: true,
         },
+        transports: ["websocket"],
     });
 
     initializeSocketServer(io);

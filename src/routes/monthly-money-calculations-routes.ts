@@ -10,7 +10,7 @@ import {
 
 const router = Router();
 
-router.use("/", checkApiKey, getAllMonthlyMoneyCalculations);
+router.get("/", checkApiKey, getAllMonthlyMoneyCalculations);
 router.get("/:id", checkApiKey, getOneMonthMoneyCalculations);
 router.post("/", checkApiKey, createMonthMoneyCalculations);
 router.patch("/:id", checkApiKey, updateMonthMoneyCalculations);

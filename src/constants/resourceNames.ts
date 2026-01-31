@@ -3,6 +3,7 @@ export const resourceNames = {
     meterData: "MeterData",
     billingAccount: "BillingAccount",
     monthlyMoneyCalculation: "MonthlyMoneyCalculation",
+    auditLog: "AuditLog",
 } as const;
 
 export type ResourceName = (typeof resourceNames)[keyof typeof resourceNames];
